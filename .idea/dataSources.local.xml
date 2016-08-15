@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - stack_like_pt_v426_development@localhost" uuid="db67f2bd-86b1-49c0-85de-b39cc98c71ac">
+      <secret-storage>master_key</secret-storage>
+      <user-name>maks</user-name>
+      <introspection-scope>stack_like_pt_v426_development:public,pg_catalog,maks</introspection-scope>
+      <resolve-scope>stack_like_pt_v426_development:public,maks</resolve-scope>
+    </data-source>
+  </component>
+</project>
