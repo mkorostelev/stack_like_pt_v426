@@ -23,8 +23,6 @@ class ApplicationController < ActionController::Base
   end
 
   def create
-    byebug
-
     build_resource
 
     resource.save!
