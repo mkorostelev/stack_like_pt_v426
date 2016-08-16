@@ -10,13 +10,22 @@ class Api::UsersController < ApplicationController
     super
   end
 
+  def save!
+    byebug
+    @user.save
+
+    head :unprocessable_entity unless @user.valid?
+
+    head :created
+  end
+
   private
   def build_resource
     @user = User.new resource_params
   end
 
   def resource
-    @user = User.find(params&.symbolize_keys[:id]) || current_user
+    @user ||= User.find(params&.symbolize_keys[:id]) || current_user
   end
 
   def resource_params

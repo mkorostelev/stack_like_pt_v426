@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }, email: true
 
-  validates :token, uniqueness: true
+  # validates :token, uniqueness: true
+
+  validates_uniqueness_of :token, :allow_blank => true, :allow_nil => true
 
   has_many :likes
 
