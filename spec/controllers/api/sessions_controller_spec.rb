@@ -35,4 +35,26 @@ RSpec.describe Api::SessionsController, type: :controller do
 
     it { expect(response.status).to eq(200) }
   end
+
+  describe '#build_resource' do
+    # @session = Session.new resource_params
+    let(:params) { { foo: :bar } }
+
+    before { expect(subject).to receive(:resource_params).and_return params }
+
+    before { expect(Session).to receive(:new).with(params) }
+
+    it { expect { subject.send(:build_resource) }.to_not raise_error }
+  end
+
+  describe '#resource' do
+    # @session ||= Session.new user: current_user
+    let(:user) { stub_model User }
+
+    before { expect(subject).to receive(:current_user).and_return user }
+
+    before { expect(Session).to receive(:new).with(user: user) }
+
+    it { expect { subject.send(:resource) }.to_not raise_error }
+  end
 end
